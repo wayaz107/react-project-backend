@@ -1,22 +1,37 @@
-class RecipesController < ApplicationController
+ class RecipesController < ApplicationController
 
- def index
- end 
+    def index
+        recipes = Recipe.all
 
- def show
- end 
+        render json: recipes
+    end 
 
- def create
- end 
+    def show
+        recipe = Recipe.find(params[:id])
+        render json: recipe
+    end 
 
- def update
- end 
+     def create
+        recipe = Recipe.create(recipe_params)   
+        render json: recipe
+     end 
 
- def destroy
- end 
+    def update
+        recipe = Recipe.find(params[:id])
+        recipe.update(recipe_params)
+        render json: recipe     
+    end 
 
- def recipe_params
-    params.require(:recipe).permit(:name, :description, :image_url)
-  end
+     def destroy
+        recipe = Recipe.find(params[:id])
+        recipe.destroy
+        render json: recipe
+    end 
 
-end
+ private 
+
+    def recipe_params
+      params.require(:recipe).permit(:name, :description, :image_url)
+     end
+
+ end
