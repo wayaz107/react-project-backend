@@ -4,7 +4,6 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :brand
       t.string :image
-      t.text :description
       t.integer :likes
 
       t.timestamps
