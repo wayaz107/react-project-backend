@@ -4,7 +4,8 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :brand
       t.string :image
-      t.integer :likes
+      t.boolean :owned, default: false
+      t.boolean :wish_list, default: false
 
       t.timestamps
     end
