@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Product.create(name: "The Dewy Skin Cream Plumping & Hydrating Moisturizer", brand: "Tatcha", image: "https://www.sephora.com/productimages/sku/s2181006-main-zoom.jpg?imwidth=315", likes: 2)
-Product.create(name: "Hyaluronic Acid 2% + B5", brand: "The Ordinary", image: "https://www.sephora.com/productimages/sku/s2031375-main-zoom.jpg?imwidth=315", likes: 1)
-Product.create(name: "Watermelon Glow Niacinamide Dew Drops", brand: "Glow Recipe", image: "https://www.sephora.com/productimages/sku/s2404846-main-zoom.jpg?imwidth=315", likes: 5)
+Product.create(name: "The Dewy Skin Cream Plumping & Hydrating Moisturizer", brand: "Tatcha", image: "https://www.sephora.com/productimages/sku/s2181006-main-zoom.jpg?imwidth=315")
+Product.create(name: "Hyaluronic Acid 2% + B5", brand: "The Ordinary", image: "https://www.sephora.com/productimages/sku/s2031375-main-zoom.jpg?imwidth=315")
+Product.create(name: "Watermelon Glow Niacinamide Dew Drops", brand: "Glow Recipe", image: "https://www.sephora.com/productimages/sku/s2404846-main-zoom.jpg?imwidth=315")
 
 
 Comment.create(content: "Very rich cream, helped my dry skin", user: "Anum", product_id: 1)

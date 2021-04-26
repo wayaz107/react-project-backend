@@ -1,14 +1,9 @@
-class Api::V1::ProductsController < ApplicationController
-    before_action :set_products, only: [:show, :update, :destroy]
-
+class ProductsController < ApplicationController
+   
 def index
     @products = Product.all
     render json: @products
 
-end 
-
-def show
-    render json: @product
 end 
 
 def create
@@ -20,6 +15,11 @@ def create
     end
 end
 
+def show
+    @product = Product.find_by(id: params[:id])
+    render json: @product
+end 
+
 def update
     if @product.update(product_params)
         @product.save
@@ -30,6 +30,7 @@ def update
 end 
 
 def destroy
+    @product = Product.find_by(id: params[:id])
     @product.destroy
     render json: @product
 end
@@ -37,13 +38,8 @@ end
 
 private
 
-def set_product
-    @product = Product.find(params[:id])
-  end
-
 def product_params
  params.require(:product).permit(:id, :name, :brand, :image, :owned, :wish_list)
 end 
-
 
 end

@@ -1,5 +1,5 @@
-class Api::V1::CommentsController < ApplicationController
-    before_action :set_product
+class CommentsController < ApplicationController
+before_action :set_product
 
 def index
     @comments = @product.comments
@@ -21,20 +21,20 @@ def create
 end 
 
 def destroy
-    @comment = Comment.find(params['id'])
-    @product = Product.find(@comment.product_id)
+    @comment = Comment.find_by(id: params[:id])
     @comment.destroy
     render json: @product
   end
 
 
+
+
 private
 
-def set_destination
-    unless @product = Product.where(id: params[:product_id]).first
-      redirect_to products_path, flash: {alert: "Products doesn't exists"}
-    end
-  end
+def set_product
+  @product = Product.find(params[:product_id])
+end
+
 
 def comments_params
 params.require(:comment).permit(:content,:user,:product_id)
