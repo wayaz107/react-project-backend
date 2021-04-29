@@ -28,16 +28,17 @@ def destroy
 
 
 
-
 private
 
 def set_product
-  @product = Product.find(params[:product_id])
+    unless @product = Product.where(id: params[:product_id]).first
+        redirect_to products_path, flash: {alert: "Products doesn't exists"}
+      end
 end
 
 
 def comments_params
-params.require(:comment).permit(:content,:user,:product_id)
+params.require(:comment).permit(:content,:product_id)
 end 
 
 end
