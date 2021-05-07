@@ -16,7 +16,7 @@ def create
     if @comment.save
     render json: @product
     else 
-        render json: {error: 'Unable to create a new comment.'}
+    render json: {error: 'Unable to create a new comment.'}
     end 
 end 
 
@@ -30,15 +30,15 @@ def destroy
 
 private
 
-def set_product
+  def comments_params
+    params.require(:comment).permit(:content,:product_id)
+  end 
+    
+
+ def set_product
     unless @product = Product.where(id: params[:product_id]).first
         redirect_to products_path, flash: {alert: "Products doesn't exists"}
-      end
-end
-
-
-def comments_params
-params.require(:comment).permit(:content,:product_id)
-end 
+    end
+ end
 
 end

@@ -6,6 +6,11 @@ def index
 
 end 
 
+def show
+    @product = Product.find_by(id: params[:id])
+    render json: @product
+end 
+
 def create
     @product = Product.new(product_params)
     if @product.save
@@ -15,12 +20,8 @@ def create
     end
 end
 
-def show
-    @product = Product.find_by(id: params[:id])
-    render json: @product
-end 
-
 def update
+    @product = Product.find(params[:id])
     if @product.update(product_params)
         @product.save
         render json: @product
